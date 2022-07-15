@@ -9,6 +9,7 @@ function game(){
     const computerOptions = ['rock','scissors', 'paper'];
     const scoreboard = document.querySelector(".scoreboard");
     const resultDiv = document.querySelector(".result");
+    const kaijiresult = document.querySelector(".kaijiresult");
     const playAgainDiv = document.querySelector('.playagain')
     const rockbutton = document.querySelector('.rock');
     const scissorsbutton = document.querySelector('.scissors');
@@ -24,18 +25,21 @@ function game(){
             return computerOptions[randomNum];
     }
 
-    function rungame(userInput){
+    function rungame(){
         rpsoptions.forEach(option => {
             option.addEventListener('click',function(){
+                const userInput = this.innerText;
                 const gamesremaining = document.querySelector('.gamesremaining');
                 matches++;
+
                 gamesremaining.textContent = `Games Remaining: ${3-matches}`;
-
-
+            
 
                 var kajchoice = kaijichoice(); 
+
+
                 console.log("kaiji: " + kajchoice);
-                console.log("you: " + userInput);
+                console.log("you: " + this.innerText);
 
                 compareoptions(userInput, kajchoice); 
 
@@ -52,10 +56,15 @@ function game(){
 
     function compareoptions(userInput, kajchoice){
 
+        userInput = userInput.toLowerCase();
+        kajchoice = kajchoice.toLowerCase();
+
         if(userInput === kajchoice){
             playerscore++;
             kaijiscore++; 
-            resultDiv.textContent = 'This round is a tie!'
+            resultDiv.textContent = 'Wow..A Tie!'
+            resultDiv.style.fontSize = '50px';
+            kaijiresult.textContent = "Kaijis Choice: " + kajchoice;
             resultDiv.style.fontSize = '50px';
             playerScore_Count.textContent = playerscore; 
             kaijiScore_Count.textContent = kaijiscore; 
@@ -65,7 +74,9 @@ function game(){
                 (userInput == 'scissors' && kajchoice == 'rock') ||
                 (userInput == 'paper' && kajchoice == 'scissors')){
                 
-            resultDiv.textContent = "Kaiji wins this round";
+            resultDiv.textContent = "Kaiji wins this round!";
+            resultDiv.style.fontSize = '50px';
+            kaijiresult.textContent = "Kaijis Choice: " + kajchoice;
             resultDiv.style.fontSize = '50px';
             kaijiscore++; 
             kaijiScore_Count.textContent = kaijiscore; 
@@ -74,7 +85,9 @@ function game(){
         else{
             // No need to have the win conditions when all others
             // have been met. 
-            resultDiv.textContent = "You win this round";
+            resultDiv.textContent = "You win this round!";
+            resultDiv.style.fontSize = '50px';
+            kaijiresult.textContent = "Kaijis Choice: " + kajchoice;
             resultDiv.style.fontSize = '50px';
             playerscore++; 
             playerScore_Count.textContent = playerscore; 
@@ -91,13 +104,7 @@ function game(){
             option.style.display = 'none';
         })
 
-        gamesremaining.style.display = 'flex';
-        gamesremaining.style.position = 'absolute';
-        gamesremaining.style.width = '250px';
-        gamesremaining.style.top = '46px';
-        gamesremaining.style.left = '910px';
-        gamesremaining.style.zIndex = '2';
-        gamesremaining.style.fontSize = '25px';
+        gamesremaining.style.display = 'none';
 
 
         gameover.innerText = 'Game Over!!!';
@@ -106,17 +113,18 @@ function game(){
         if(playerscore > kaijiscore){
             resultDiv.style.fontSize = '80px';
             resultDiv.innerText = 'You Won The Game'
-            resultDiv.style.color = '#308D46';
+            resultDiv.style.color = 'black';
+            
         }
         else if(playerscore < kaijiscore){
             resultDiv.style.fontSize = '80px';
             resultDiv.innerText = 'You Lost The Game';
-            resultDiv.style.color = 'red';
+            resultDiv.style.color = 'black';
         }
         else{
             resultDiv.style.fontSize = '80px';
-            resultDiv.innerText = 'Tie';
-            resultDiv.style.color = 'grey'
+            resultDiv.innerText = 'Ultimate Tie';
+            resultDiv.style.color = 'black'
         }
 
 
@@ -128,21 +136,7 @@ function game(){
         })
     }
 
-    function main(){
-        rockbutton.addEventListener('click', function() {
-            rungame("rock");
-        })
-        paperbutton.addEventListener('click', function() {
-            rungame("paper");
-        })
-
-        scissorsbutton.addEventListener('click', function() {
-            rungame("scissors");
-        })
-            
-    }
-
-    main();
+    rungame();
 
 }
 
