@@ -43,12 +43,13 @@ body, html{
   }
   .paper{
     background-image: url("paper.png");
+
     height: 500px;
     width: 500px;
     cursor: pointer;
     transform: scale(0.6, 0.6);
     position: absolute;
-    left: 150px;
+    left: 500px;
   }
 
   .scissors{
@@ -58,7 +59,8 @@ body, html{
     cursor: pointer;
     transform: scale(0.6, 0.6);
     position: absolute;
-    left: 500px;
+    left: 150px;
+
   }
   
   button{
@@ -68,8 +70,19 @@ body, html{
     cursor: pointer;
     overflow: hidden;
     outline: none;
+    opacity: 80%; 
   }
 
+  button:active{
+    background-color: transparent; 
+    transform: scale(55%);
+    border:none; 
+  }
+
+  button:hover{
+    opacity: 100%; 
+  }
+  
   
 /* Score Board */
 .scoreboard{
@@ -91,4 +104,51 @@ body, html{
     text-align: center;
     font-size: 60px;
     margin-top: -15px;
+}
+
+.gamesremaining{
+  display:flex; 
+  position: absolute;
+  width: 500px; 
+  top: 45px; 
+  left: 920px;
+  z-index: 2;
+  font-size: 25px;
+}
+/* Play Again */
+
+.playagain{
+  position: absolute;
+  background-color:white; 
+  border-radius: 5%;
+  border: 2px solid black;
+  color: black;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  top: 670px;
+  left: 310px;
+  font-family: 'Bangers', serif;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke: 1px;
+  letter-spacing: 2px;
+  opacity: 100%;
+}
+
+.playagain:hover {
+  background-color: rgb(230, 230, 230); 
+}
+
+.playagain:active{
+  background-color: #780404; 
+  box-shadow: 0 5px rgb(0, 0, 0);
+  transform: translateY(3px);
+}
+
+
+.result{
+  margin-top: 20px;
+  font-size: 1.2rem;
 }
