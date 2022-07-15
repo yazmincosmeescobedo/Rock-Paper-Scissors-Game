@@ -109,9 +109,9 @@ body, html{
 .gamesremaining{
   display:flex; 
   position: absolute;
-  width: 500px; 
-  top: 45px; 
-  left: 920px;
+  width: 250px; 
+  top: 46px; 
+  left: 910px;
   z-index: 2;
   font-size: 25px;
 }
@@ -149,6 +149,11 @@ body, html{
 
 
 .result{
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.gameover{
   margin-top: 20px;
   font-size: 1.2rem;
 }
