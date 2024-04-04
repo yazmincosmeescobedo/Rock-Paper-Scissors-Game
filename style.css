@@ -9,7 +9,7 @@ body, html{
     width: 100%;
     height: 100%;
     position: relative;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.discordapp.com/attachments/630896342939598862/996522610009591959/kaijicards.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("kaijicards.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
